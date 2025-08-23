@@ -8,6 +8,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{F0995599-A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UrlShortener.Shared", "src\UrlShortener.Shared\UrlShortener.Shared.csproj", "{76F65E84-09F7-424D-B003-3FAD8FC42F82}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UrlShortener.Shortening.API", "src\Services\UrlShortener.Shortening.API\UrlShortener.Shortening.API.csproj", "{82C138E1-F299-4D3D-8A78-EE3FD5AF3212}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UrlShortener.Redirecting.API", "src\Services\UrlShortener.Redirecting.API\UrlShortener.Redirecting.API.csproj", "{AB5DACA2-2B42-4FA1-90C1-57CDB820330A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -16,11 +20,21 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{27822F70-FFAE-490F-BB16-4667FAC9D4AB} = {679939FF-C3D4-4031-9418-5862F7BFEB3B}
 		{76F65E84-09F7-424D-B003-3FAD8FC42F82} = {679939FF-C3D4-4031-9418-5862F7BFEB3B}
+		{82C138E1-F299-4D3D-8A78-EE3FD5AF3212} = {27822F70-FFAE-490F-BB16-4667FAC9D4AB}
+		{AB5DACA2-2B42-4FA1-90C1-57CDB820330A} = {27822F70-FFAE-490F-BB16-4667FAC9D4AB}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{76F65E84-09F7-424D-B003-3FAD8FC42F82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{76F65E84-09F7-424D-B003-3FAD8FC42F82}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{76F65E84-09F7-424D-B003-3FAD8FC42F82}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{76F65E84-09F7-424D-B003-3FAD8FC42F82}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82C138E1-F299-4D3D-8A78-EE3FD5AF3212}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82C138E1-F299-4D3D-8A78-EE3FD5AF3212}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82C138E1-F299-4D3D-8A78-EE3FD5AF3212}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82C138E1-F299-4D3D-8A78-EE3FD5AF3212}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB5DACA2-2B42-4FA1-90C1-57CDB820330A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB5DACA2-2B42-4FA1-90C1-57CDB820330A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB5DACA2-2B42-4FA1-90C1-57CDB820330A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB5DACA2-2B42-4FA1-90C1-57CDB820330A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
