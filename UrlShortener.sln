@@ -2,9 +2,25 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{679939FF-C3D4-4031-9418-5862F7BFEB3B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{27822F70-FFAE-490F-BB16-4667FAC9D4AB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{F0995599-AFA6-449E-B279-909BAC4AEC98}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UrlShortener.Shared", "src\UrlShortener.Shared\UrlShortener.Shared.csproj", "{76F65E84-09F7-424D-B003-3FAD8FC42F82}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{27822F70-FFAE-490F-BB16-4667FAC9D4AB} = {679939FF-C3D4-4031-9418-5862F7BFEB3B}
+		{76F65E84-09F7-424D-B003-3FAD8FC42F82} = {679939FF-C3D4-4031-9418-5862F7BFEB3B}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{76F65E84-09F7-424D-B003-3FAD8FC42F82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76F65E84-09F7-424D-B003-3FAD8FC42F82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76F65E84-09F7-424D-B003-3FAD8FC42F82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76F65E84-09F7-424D-B003-3FAD8FC42F82}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
