@@ -19,7 +19,8 @@ public class ShortenUrlHandler(IMongoCollection<ShortenedUrl> collection, Config
         await collection.InsertOneAsync(new ShortenedUrl
         {
             OriginalUrl = request.Url,
-            ShortUrl = shortenedUrl
+            ShortUrl = shortenedUrl,
+            TimesVisited = 0
         }, cancellationToken: cancellationToken);
 
         return new ShortenUrlResult(shortenedUrl);
@@ -27,34 +28,10 @@ public class ShortenUrlHandler(IMongoCollection<ShortenedUrl> collection, Config
 
     private string GenerateShortenUri()
     {
-        var random = new Random();
         var url = configuration["WebsiteUrl"]!;
 
-        var shortenedUrl = new StringBuilder(url + "/");
+        var randomChars = Guid.NewGuid().ToString().Substring(0, 7);
 
-        for (var i = 0; i < 7; i++)
-        {
-            var charToGenerate = random.Next(0, 2);
-
-            var asciiNumber = charToGenerate switch
-            {
-                (int)RandomCharType.Number => random.Next(48, 58),
-                (int)RandomCharType.LowerCaseCharacter => random.Next(97, 123),
-                (int)RandomCharType.UpperCaseCharacter => random.Next(65, 91)
-            };
-
-            var character = (char)asciiNumber;
-
-            shortenedUrl.Append(character);
-        }
-
-        return shortenedUrl.ToString();
+        return url + "/" + randomChars;
     }
-}
-
-public enum RandomCharType
-{
-    Number,
-    LowerCaseCharacter,
-    UpperCaseCharacter
 }
