@@ -6,4 +6,8 @@
         <ImplicitUsings>enable</ImplicitUsings>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\..\UrlShortener.Shared\UrlShortener.Shared.csproj" />
+    </ItemGroup>
+
 </Project>

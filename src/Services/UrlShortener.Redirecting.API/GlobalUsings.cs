@@ -1,0 +1,10 @@
+global using MediatR;
+global using UrlShortener.Shared.CQRS;
+global using UrlShortener.Shared.Library;
+global using MongoDB.Driver;
+global using UrlShortener.Shared.Models;
+global using UrlShortener.Shared.Behaviors;
+global using UrlShortener.Shared.DbContext;
+global using UrlShortener.Redirecting.API.Configuration;
+global using UrlShortener.Redirecting.API.Features.RedirectUrl;
+global using UrlShortener.Redirecting.API.Features.Shared;

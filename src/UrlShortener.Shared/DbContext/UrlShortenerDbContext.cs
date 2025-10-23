@@ -1,6 +1,6 @@
-namespace UrlShortener.Shortening.API;
+namespace UrlShortener.Shared.DbContext;
 
-public class UrlShortenerDbContext(DbContextOptions options) : DbContext(options)
+public class UrlShortenerDbContext(DbContextOptions options) : Microsoft.EntityFrameworkCore.DbContext(options)
 {
     public DbSet<ShortenedUrl> ShortenedUrls { get; set; }
 

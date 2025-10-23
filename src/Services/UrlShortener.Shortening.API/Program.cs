@@ -11,5 +11,4 @@ var app = builder.Build();
 
 app.AddShortenRoute();
 
-
 app.Run();

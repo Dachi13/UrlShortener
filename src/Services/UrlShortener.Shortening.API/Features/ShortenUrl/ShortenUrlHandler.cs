@@ -4,7 +4,7 @@ public record ShortenUrlCommand(string Url) : ICommand<ShortenUrlResult>;
 
 public record ShortenUrlResult(string ShortenedUrl);
 
-public class ShortenUrlHandler(IMongoCollection<ShortenedUrl> collection, ConfigurationManager configuration)
+public class ShortenUrlHandler(IMongoCollection<ShortenedUrl> collection)
     : ICommandHandler<ShortenUrlCommand, ShortenUrlResult>
 {
     public async Task<Result<ShortenUrlResult>> Handle(ShortenUrlCommand request, CancellationToken cancellationToken)
@@ -28,10 +28,8 @@ public class ShortenUrlHandler(IMongoCollection<ShortenedUrl> collection, Config
 
     private string GenerateShortenUri()
     {
-        var url = configuration["WebsiteUrl"]!;
-
         var randomChars = Guid.NewGuid().ToString().Substring(0, 7);
 
-        return url + "/" + randomChars;
+        return randomChars;
     }
 }

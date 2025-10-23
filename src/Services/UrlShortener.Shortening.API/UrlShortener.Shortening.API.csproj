@@ -7,11 +7,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\UrlShortener.Shared\UrlShortener.Shared.csproj" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <PackageReference Include="MongoDB.EntityFrameworkCore" Version="8.0.0" />
+        <ProjectReference Include="..\..\UrlShortener.Shared\UrlShortener.Shared.csproj"/>
     </ItemGroup>
 
 </Project>

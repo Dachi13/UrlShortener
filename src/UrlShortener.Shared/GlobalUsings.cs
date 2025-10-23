@@ -8,3 +8,7 @@ global using UrlShortener.Shared.Models;
 global using Microsoft.AspNetCore.Diagnostics;
 global using Microsoft.AspNetCore.Http;
 global using Microsoft.AspNetCore.Mvc;
+global using MongoDB.Bson.Serialization.Attributes;
+global using Microsoft.EntityFrameworkCore;
+global using MongoDB.Driver;
+global using MongoDB.EntityFrameworkCore.Extensions;
