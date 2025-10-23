@@ -15,7 +15,7 @@ public class RedirectUrlQueryHandler(IMongoCollection<ShortenedUrl> collection)
             collection.FindOneAndUpdateAsync(filter, Builders<ShortenedUrl>.Update.Inc(x => x.TimesVisited, 1),
                 cancellationToken: cancellationToken);
 
-        if (shortenUrl is null) return Errors.OriginalUrlNotFound;
+        if (shortenUrl?.OriginalUrl is null) return Errors.OriginalUrlNotFound;
 
         return new RedirectUrlResult(shortenUrl.OriginalUrl);
     }
