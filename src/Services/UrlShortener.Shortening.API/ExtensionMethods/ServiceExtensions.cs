@@ -8,18 +8,9 @@ public static class ServiceExtensions
         UrlShortenerDbContext.Create(mongoClient.GetDatabase("ShortenUrl"));
 
         var database = mongoClient.GetDatabase("ShortenUrl");
-        var collections = database.ListCollectionNames().ToList();
-
         var collection = database.GetCollection<ShortenedUrl>("ShortenedUrls");
 
         services.AddScoped(_ => collection);
-
-        if (!collections.Contains("ShortenedUrls"))
-        {
-            Console.WriteLine("Creating collection 'ShortenedUrls'...");
-            database.CreateCollection("ShortenedUrls");
-        }
-        else Console.WriteLine("Collection 'ShortenedUrls' already exists.");
 
         return services;
     }
@@ -33,7 +24,7 @@ public static class ServiceExtensions
             config.AddOpenBehavior(typeof(ValidationBehavior<,>));
             config.AddOpenBehavior(typeof(LoggingBehavior<,>));
         });
-        
+
         return services;
     }
 }

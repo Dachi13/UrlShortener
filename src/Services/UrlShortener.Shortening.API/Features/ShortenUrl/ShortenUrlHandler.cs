@@ -10,6 +10,9 @@ public class ShortenUrlHandler(
     ILogger<ShortenUrlHandler> logger)
     : ICommandHandler<ShortenUrlCommand, ShortenUrlResult>
 {
+    private readonly Counter _urlCollisionCounter =
+        Metrics.CreateCounter(configuration["CollisionConfig:Name"]!, configuration["CollisionConfig:Desc"]!);
+
     public async Task<Result<ShortenUrlResult>> Handle(ShortenUrlCommand request, CancellationToken cancellationToken)
     {
         var hashedUrlResult = GenerateShortenUri();
@@ -36,7 +39,7 @@ public class ShortenUrlHandler(
                 return hashedUrlResult.Error;
             }
 
-            // TODO add redis cache for counting collisions
+            IncrementCollisionMetric();
             logger.LogWarning("Hashed Url collision. Suggest to increase shorten url length.");
 
             hashedUrl = hashedUrlResult.Value;
@@ -54,12 +57,17 @@ public class ShortenUrlHandler(
 
     private Result<string> GenerateShortenUri()
     {
-        var wasParsed = int.TryParse(configuration["HashingLength"], out var hashLength);
+        var wasParsed = int.TryParse(configuration["CollisionConfig:HashingLength"], out var hashLength);
 
         if (!wasParsed || hashLength == 0) return Errors.HashLengthError;
 
         var randomChars = Guid.NewGuid().ToString().Substring(0, hashLength);
 
         return randomChars;
+    }
+
+    private void IncrementCollisionMetric()
+    {
+        _urlCollisionCounter.Inc();
     }
 }

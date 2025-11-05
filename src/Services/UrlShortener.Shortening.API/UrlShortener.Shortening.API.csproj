@@ -10,4 +10,9 @@
         <ProjectReference Include="..\..\UrlShortener.Shared\UrlShortener.Shared.csproj"/>
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="8.0.1" />
+      <PackageReference Include="prometheus-net.AspNetCore" Version="8.2.1" />
+    </ItemGroup>
+
 </Project>
