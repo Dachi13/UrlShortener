@@ -18,7 +18,7 @@ public static class RedirectUrlEndpoint
                     {
                         { ErrorType: ErrorType.InternalServerError } => Results.Conflict(
                             new { message = error.Message }),
-                        {ErrorType: ErrorType.NotFound } => Results.NotFound(error.Message),
+                        { ErrorType: ErrorType.NotFound } => Results.NotFound(error.Message),
                         _ => Results.Conflict(error.Message)
                     });
             })

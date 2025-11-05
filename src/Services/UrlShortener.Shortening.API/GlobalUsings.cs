@@ -8,3 +8,4 @@ global using UrlShortener.Shared.Behaviors;
 global using UrlShortener.Shortening.API.ExtensionMethods;
 global using UrlShortener.Shared.Behaviors;
 global using UrlShortener.Shared.DbContext;
+global using UrlShortener.Shortening.API.Features.Shared;

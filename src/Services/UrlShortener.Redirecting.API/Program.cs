@@ -12,5 +12,4 @@ var app = builder.Build();
 
 app.AddRedirectUrlRoute();
 
-
 app.Run();

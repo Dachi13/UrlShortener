@@ -9,5 +9,6 @@ public enum ErrorType
     DatabaseError,
     InternalServerError,
     UnprocessableEntity,
-    InvalidRequest
+    InvalidRequest,
+    ConfigurationError
 }
