@@ -10,4 +10,8 @@
       <ProjectReference Include="..\..\UrlShortener.Shared\UrlShortener.Shared.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="8.0.1" />
+    </ItemGroup>
+
 </Project>

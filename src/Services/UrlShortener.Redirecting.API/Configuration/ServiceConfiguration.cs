@@ -16,6 +16,17 @@ public static class ServiceConfiguration
         return services;
     }
 
+    public static IServiceCollection ConfigureRedis(this IServiceCollection services, IConfiguration configuration)
+    {
+        services.AddStackExchangeRedisCache(redisOptions =>
+        {
+            var connectionString = configuration.GetConnectionString("Redis");
+            redisOptions.Configuration = connectionString;
+        });
+
+        return services;
+    }
+
     public static IServiceCollection ConfigureMediator(this IServiceCollection services)
     {
         var assembly = typeof(Program).Assembly;
