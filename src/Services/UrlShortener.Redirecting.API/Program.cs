@@ -5,6 +5,7 @@ var mongoConnectionString = builder.Configuration.GetConnectionString("Default")
 builder.Services
     .ConfigureDatabase(mongoConnectionString)
     .ConfigureRedis(builder.Configuration)
+    .ConfigureServices()
     .ConfigureMediator();
 
 builder.Services.AddScoped(_ => builder.Configuration);

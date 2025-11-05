@@ -18,10 +18,13 @@ public static class ServiceConfiguration
 
     public static IServiceCollection ConfigureRedis(this IServiceCollection services, IConfiguration configuration)
     {
-        services.AddStackExchangeRedisCache(redisOptions =>
+        var connectionString = configuration.GetConnectionString("Redis")!;
+
+        services.AddSingleton<IConnectionMultiplexer>(_ =>
         {
-            var connectionString = configuration.GetConnectionString("Redis");
-            redisOptions.Configuration = connectionString;
+            var config = ConfigurationOptions.Parse(connectionString);
+            config.AbortOnConnectFail = false;
+            return ConnectionMultiplexer.Connect(config);
         });
 
         return services;
@@ -36,6 +39,13 @@ public static class ServiceConfiguration
             config.AddOpenBehavior(typeof(ValidationBehavior<,>));
             config.AddOpenBehavior(typeof(LoggingBehavior<,>));
         });
+
+        return services;
+    }
+
+    public static IServiceCollection ConfigureServices(this IServiceCollection services)
+    {
+        services.AddScoped<IAnalyticsPublisher, AnalyticsPublisher>();
 
         return services;
     }

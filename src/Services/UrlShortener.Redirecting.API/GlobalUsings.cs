@@ -8,4 +8,4 @@ global using UrlShortener.Shared.DbContext;
 global using UrlShortener.Redirecting.API.Configuration;
 global using UrlShortener.Redirecting.API.Features.RedirectUrl;
 global using UrlShortener.Redirecting.API.Features.Shared;
-global using Microsoft.Extensions.Caching.Distributed;
+global using StackExchange.Redis;
